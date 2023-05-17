@@ -155,25 +155,24 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldNotSetNextStationIfMore9() {
+    public void shouldSetPrevStationIfLess0() {
         Radio st = new Radio();
-        st.setCurrentStation(10);
 
-        int expected = 0;
+        //st.setCurrentStation(0);
+        st.setPrevStation();
+
+        int expected = 9;
         int actual = st.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldNotSetPrevStationIfLess0() {
+    public void shouldNotSetNextStationIfMore9() {
         Radio st = new Radio();
-        st.setCurrentStation(0);
+        st.setCurrentStation(10);
 
-
-        st.findPrev();
-
-        int expected = 9;
+        int expected = 0;
         int actual = st.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);

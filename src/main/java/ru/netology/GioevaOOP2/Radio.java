@@ -73,15 +73,13 @@ public class Radio {
     public void setPrevStation() {
 
         int count = currentStation - 1;
-        currentStation = count;
-    }
-
-
-    public void findPrev() {
-        if (currentStation == setToMinStation()) {
+        if (currentStation == 0) {
             setToMaxStation();
-
+        } else {
+            currentStation = count;
         }
     }
 }
+
+
 
