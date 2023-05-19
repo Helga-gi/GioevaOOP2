@@ -1,46 +1,27 @@
 package ru.netology.GioevaOOP2;
 
 public class Radio {
-    public int currentVolum;
+    private int currentVolume;
+    private int currentStation;
 
-    public int getCurrentVolum() {
-        return currentVolum;
+    public int getCurrentVolume() {
+        return currentVolume;
     }
-
-    public void setCurrentVolum(int newCurrentVolum) {
-        if (newCurrentVolum < 0) {
-            return;
-        }
-        if (newCurrentVolum > 100) {
-            return;
-        }
-
-        currentVolum = newCurrentVolum;
-    }
-
-    public void increaseVolume() {
-        int target = currentVolum + 1;
-        currentVolum = target;
-
-    }
-
-    public void decreaseVolum() {
-        int target = currentVolum - 1;
-        currentVolum = target;
-    }
-
-    public void setToMaxVolum() {
-        currentVolum = 100;
-    }
-
-    public void setToMinVolum() {
-        currentVolum = 0;
-    }
-
-    public int currentStation;
 
     public int getCurrentStation() {
+
         return currentStation;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
+        }
+
+        currentVolume = newCurrentVolume;
     }
 
     public void setCurrentStation(int newCurrentStation) {
@@ -52,6 +33,27 @@ public class Radio {
         }
 
         currentStation = newCurrentStation;
+    }
+
+    public void increaseVolume() {
+        int target = currentVolume + 1;
+        currentVolume = target;
+
+    }
+
+    public void decreaseVolume() {
+        int target = currentVolume - 1;
+        currentVolume = target;
+    }
+
+    public void setToMaxVolume() {
+
+        currentVolume = 100;
+    }
+
+    public void setToMinVolume() {
+
+        currentVolume = 0;
     }
 
     public void setNextStation() {
