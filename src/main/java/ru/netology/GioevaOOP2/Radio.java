@@ -57,8 +57,12 @@ public class Radio {
     }
 
     public void setNextStation() {
-        int count = currentStation + 1;
-        currentStation = count;
+        if (currentStation < 9) {
+            currentStation = currentStation + 1;
+        } else {
+            currentStation = setToMinStation();
+        }
+
     }
 
     public int setToMaxStation() {
@@ -75,10 +79,11 @@ public class Radio {
     public void setPrevStation() {
 
         int count = currentStation - 1;
+
         if (currentStation == 0) {
             setToMaxStation();
         } else {
-            currentStation = count;
+            setCurrentStation(count);
         }
     }
 }
