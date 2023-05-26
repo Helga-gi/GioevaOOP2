@@ -1,23 +1,47 @@
 package ru.netology.GioevaOOP2;
 
 public class Radio {
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentVolume;
+    private int maxStation;
+    private int minStation;
     private int currentStation;
+
+    public Radio(int countStation){
+        this.maxStation = countStation-1;
+
+    }
+    public Radio(){
+        this.maxStation = 9;
+
+    }
 
     public int getCurrentVolume() {
         return currentVolume;
+    }
+    public int getMaxVolume(){
+        return maxVolume;
+    }public int getMinVolume(){
+        return minVolume;
     }
 
     public int getCurrentStation() {
 
         return currentStation;
     }
+    public int getMaxStation(){
+        return maxStation;
+    }
+    public int getMinStation(){
+        return minStation;
+    }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
 
@@ -25,10 +49,10 @@ public class Radio {
     }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
+        if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxStation) {
             return;
         }
 
@@ -48,16 +72,16 @@ public class Radio {
 
     public void setToMaxVolume() {
 
-        currentVolume = 100;
+        currentVolume = maxVolume;
     }
 
     public void setToMinVolume() {
 
-        currentVolume = 0;
+        currentVolume = minVolume;
     }
 
     public void setNextStation() {
-        if (currentStation < 9) {
+        if (currentStation < maxStation) {
             currentStation = currentStation + 1;
         } else {
             currentStation = setToMinStation();
@@ -66,12 +90,12 @@ public class Radio {
     }
 
     public int setToMaxStation() {
-        currentStation = 9;
+        currentStation = maxStation;
         return 0;
     }
 
     public int setToMinStation() {
-        currentStation = 0;
+        currentStation = minStation;
         return 0;
 
     }
@@ -80,7 +104,7 @@ public class Radio {
 
         int count = currentStation - 1;
 
-        if (currentStation == 0) {
+        if (currentStation == minStation) {
             setToMaxStation();
         } else {
             setCurrentStation(count);
